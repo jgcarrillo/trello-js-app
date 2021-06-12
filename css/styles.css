@@ -82,6 +82,23 @@ body {
 /* ******* */
 /* NAVBAR */
 /* ******* */
+nav a {
+	color: white;
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+nav li {
+	display: inline;
+}
+
+/* ****** */
+/* LINKS */
+/* ****** */
+
 a {
 	text-align: center;
 	font-family: inherit;
@@ -95,17 +112,8 @@ a:hover {
 	color: #ccc;
 }
 
-nav a {
-	color: white;
-	text-decoration: none;
-}
-
-ul {
-	list-style-type: none;
-}
-
-nav li {
-	display: inline;
+.link-web {
+	color: rgb(219, 85, 85);
 }
 
 /* ******* */
