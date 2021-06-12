@@ -23,7 +23,6 @@ body {
 /* ***** */
 .container {
 	padding: 1em;
-	margin: 2em 1em 1em 1em;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: 0.1fr 1fr 0.1fr;
@@ -128,13 +127,29 @@ button:hover {
 	background-color: rgb(165, 165, 165);
 }
 
+/* ***** */
+/* ALERT */
+/* ***** */
+.alert {
+	display: none;
+	width: 40%;
+	margin: 0px auto;
+	margin-top: 10px;
+	text-align: center;
+	padding: 10px;
+	background-color: red;
+	color: white;
+	font-weight: 800;
+	border-radius: var(--radius);
+}
+
 /* ************** */
 /* MEDIA QUERIES */
 /* ************** */
 @media (max-width: 1000px) {
 	.container {
 		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: 0.1fr 1fr 1fr 0.1fr;
+		grid-template-rows: 0.3fr 1fr 1fr 0.2fr;
 		height: 70vh;
 		font-size: 0.9em;
 		font-weight: 800;
