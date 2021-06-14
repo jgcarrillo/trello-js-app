@@ -10,7 +10,57 @@
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body>
+		<!-- ALERT -->
 		<div class="alert">ALERTA!!</div>
+
+		<!-- MODAL TODO -->
+		<div class="modal" id="modal1">
+			<div class="modal__dialog">
+				<header class="modal__header">
+					Write a new TO-DO and press 'Enter'
+					<button class="modal__close" data-close>X</button>
+				</header>
+				<section class="modal__content">
+					<form action="">
+						<label for="todo1">TO-DO:</label>
+						<input type="text" id="todo1" name="todo1" />
+					</form>
+				</section>
+			</div>
+		</div>
+
+		<!-- MODAL DOING -->
+		<div class="modal" id="modal2">
+			<div class="modal__dialog">
+				<header class="modal__header">
+					Write a new DOING TASK and press 'Enter'
+					<button class="modal__close" data-close>X</button>
+				</header>
+				<section class="modal__content">
+					<form action="">
+						<label for="doing1">DOING:</label>
+						<input type="text" id="doing1" name="doing1" />
+					</form>
+				</section>
+			</div>
+		</div>
+
+		<!-- MODAL DONE -->
+		<div class="modal" id="modal3">
+			<div class="modal__dialog">
+				<header class="modal__header">
+					Write a new DOINE TASK and press 'Enter'
+					<button class="modal__close" data-close>X</button>
+				</header>
+				<section class="modal__content">
+					<form action="">
+						<label for="done1">DONE:</label>
+						<input type="text" id="done1" name="done1" />
+					</form>
+				</section>
+			</div>
+		</div>
+
 		<main>
 			<div class="container">
 				<!-- NAV BAR -->
@@ -25,19 +75,19 @@
 				<!-- MAIN CONTENT -->
 				<div class="to-do">
 					<h3>TO-DO</h3>
-					<button class="add-todo">ADD TO-DO</button>
+					<button class="add-todo" data-open="modal1">ADD TO-DO</button>
 
 					<div id="1" class="container__todo card"></div>
 				</div>
 				<div class="doing">
 					<h3>DOING</h3>
-					<button class="add-doing">ADD DOING</button>
+					<button class="add-doing" data-open="modal2">ADD DOING</button>
 
 					<div class="container__doing card"></div>
 				</div>
 				<div class="done">
 					<h3>DONE</h3>
-					<button class="add-done">ADD DONE</button>
+					<button class="add-done" data-open="modal3">ADD DONE</button>
 
 					<div class="container__done card"></div>
 				</div>
@@ -50,5 +100,6 @@
 
 		<!-- JS CODE -->
 		<script src="js/app.js"></script>
+		<script src="js/modal.js"></script>
 	</body>
 </html>

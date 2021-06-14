@@ -167,6 +167,82 @@ button:hover {
 	cursor: pointer;
 }
 
+/* ****** */
+/* MODAL */
+/* ****** */
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	background: rgba(51, 51, 51, 0.8);
+	cursor: pointer;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 300ms;
+	color: black;
+}
+
+.modal__dialog {
+	position: relative;
+	max-width: 800px;
+	max-height: 80vh;
+	border-radius: 5px;
+	background: white;
+	overflow: auto;
+	cursor: default;
+	width: 40%;
+}
+
+.modal__dialog > * {
+	padding: 1rem;
+}
+
+.modal__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgb(230, 230, 230);
+}
+
+.modal__header .modal__close {
+	font-size: 1.5rem;
+}
+
+.modal__close {
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-size: inherit;
+	box-shadow: none;
+	width: 10%;
+	padding: 0;
+	margin: 0;
+}
+
+.modal__close:hover {
+	background-color: rgb(230, 230, 230);
+	font-weight: 800;
+}
+
+.modal p + p {
+	margin-top: 1rem;
+}
+.modal.is-visible {
+	visibility: visible;
+	opacity: 1;
+}
+
+input {
+	width: 80%;
+}
+
 /* ************** */
 /* MEDIA QUERIES */
 /* ************** */
