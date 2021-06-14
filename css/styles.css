@@ -141,15 +141,15 @@ button:hover {
 /* ALERT */
 /* ***** */
 .alert {
-	display: none;
-	width: 40%;
+	width: 80%;
 	margin: 0px auto;
 	margin-top: 10px;
+	margin-bottom: 10px;
 	text-align: center;
 	padding: 10px;
 	background-color: red;
 	color: white;
-	font-weight: 800;
+	font-size: 1em;
 	border-radius: var(--radius);
 }
 
@@ -192,7 +192,7 @@ button:hover {
 	position: relative;
 	max-width: 800px;
 	max-height: 80vh;
-	border-radius: 5px;
+	border-radius: var(--radius);
 	background: white;
 	overflow: auto;
 	cursor: default;
@@ -276,6 +276,11 @@ label {
 			'todo todo doing doing'
 			'done done done done'
 			'main-footer main-footer main-footer main-footer';
+	}
+
+	.modal__dialog {
+		width: 50%;
+		font-size: 1em;
 	}
 }
 

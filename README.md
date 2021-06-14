@@ -11,6 +11,8 @@ The list of the features implemented in this program are:
 - [x] Basic use of DOM
 - [x] Error management
 - [x] Pure CSS, only Grid Layout
+- [x] Drag & Drop between task
+- [x] Use of modals
 
 ## Contact
 
