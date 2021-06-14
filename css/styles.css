@@ -160,6 +160,7 @@ button:hover {
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: 0.3fr 1fr 1fr 0.2fr;
 		height: 70vh;
+		gap: 0.7rem;
 		font-size: 0.9em;
 		font-weight: 800;
 		grid-template-areas:
@@ -174,6 +175,7 @@ button:hover {
 	.container {
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: 0.1fr 1fr 1fr 1fr 0.1fr;
+		gap: 0.5rem;
 		font-size: 0.8em;
 		grid-template-areas:
 			'main-nav main-nav main-nav'
