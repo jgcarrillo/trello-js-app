@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 	const openModal = document.querySelectorAll('[data-open]');
-	const isVisible = 'is-visible';
 	const closeModal = document.querySelectorAll('[data-close]');
+	const isVisible = 'is-visible';
 
 	for (const elem of openModal) {
 		elem.addEventListener('click', function () {
@@ -23,7 +23,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	document.addEventListener('keyup', (e) => {
-		if (e.key == 'Escape' && document.querySelector('.modal.is-visible')) {
+		if (e.key === 'Escape' && document.querySelector('.modal.is-visible')) {
+			document.querySelector('.modal.is-visible').classList.remove(isVisible);
+		}
+	});
+
+	document.addEventListener('keyup', (e) => {
+		if (e.key === 'Enter' && document.querySelector('.modal.is-visible')) {
 			document.querySelector('.modal.is-visible').classList.remove(isVisible);
 		}
 	});
