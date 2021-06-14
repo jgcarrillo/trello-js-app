@@ -5,6 +5,7 @@
 	--cards-color: #888;
 	--radius: 5px;
 	--padding: 10px;
+	--bg-color-card: #ccc;
 }
 
 * {
@@ -152,6 +153,20 @@ button:hover {
 	border-radius: var(--radius);
 }
 
+/* ***** */
+/* CARD */
+/* ***** */
+.card {
+	display: none;
+	background-color: var(--bg-color-card);
+	padding: var(--padding);
+	margin: 1.2em;
+	border-radius: var(--radius);
+	color: black;
+	font-weight: normal;
+	cursor: pointer;
+}
+
 /* ************** */
 /* MEDIA QUERIES */
 /* ************** */
@@ -173,7 +188,7 @@ button:hover {
 
 @media (max-width: 800px) {
 	.container {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: 1fr;
 		grid-template-rows: 0.1fr 1fr 1fr 1fr 0.1fr;
 		gap: 0.5rem;
 		font-size: 0.8em;
