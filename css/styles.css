@@ -47,6 +47,7 @@ body {
 	background-color: var(--footer-color);
 	padding-top: var(--padding);
 	border-radius: var(--radius);
+	color: white;
 }
 
 .main-nav {
@@ -116,13 +117,6 @@ a:hover {
 
 .link-web {
 	color: #e63946;
-}
-
-/* ******* */
-/* FOOTER */
-/* ******* */
-footer {
-	color: white;
 }
 
 /* ******* */
@@ -310,5 +304,10 @@ label {
 			'doing doing doing'
 			'done done done'
 			'main-footer main-footer main-footer';
+	}
+
+	.add-todo {
+		font-size: 1.2em;
+		width: 40%;
 	}
 }
