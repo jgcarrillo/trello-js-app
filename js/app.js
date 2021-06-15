@@ -6,13 +6,35 @@ document.addEventListener('DOMContentLoaded', function () {
 	const isVisible = 'is-visible';
 
 	const btnTask = document.querySelector('#add__task');
-	const getInput = document.querySelector('#todo1');
-	let valueTask = '';
+	const taskTitle = document.querySelector('#todo1');
 
 	const containerAlert = document.querySelector('#alert__empty');
 
-	const btnTodo = document.querySelector('.add-todo');
-	const containerToDo = document.querySelector('.container__todo');
+	const todoContainer = document.querySelector('.to-do');
+
+	let tasks = [];
+
+	// *********
+	// FUNCTIONS
+	// *********
+	const TodoTaskContainer = (task) => {
+		const $div = document.createElement('div');
+		const $p = document.createElement('p');
+
+		$div.classList.add('container__todo');
+		$div.classList.add('card');
+
+		$p.innerHTML = `${task.getName()}`;
+		$div.appendChild($p);
+
+		return $div;
+	};
+
+	const searchTask = (id) => {
+		for (let task of tasks) {
+			if (task.getId() == id) return task;
+		}
+	};
 
 	// *************************
 	// MODAL *******************
@@ -54,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	btnTask.addEventListener('click', function (e) {
 		e.preventDefault();
 
-		if (getInput.value === '') {
+		if (taskTitle.value === '') {
 			containerAlert.classList.add('alert');
 			containerAlert.innerHTML = 'The input value cannot be empty';
 			containerAlert.style.display = 'block';
@@ -68,21 +90,16 @@ document.addEventListener('DOMContentLoaded', function () {
 			// CREATE TASK AND APPEND
 			// *********************
 			document.querySelector('.modal.is-visible').classList.remove(isVisible);
-			const task = new Task(getInput.value);
 
-			const $p = document.createElement('p');
-			$p.innerHTML = task.getName();
+			// Create a new instance of Task
+			const task = new Task(taskTitle.value);
 
-			containerToDo.appendChild($p);
+			tasks.push(task);
+
+			// Show the task into To-Do container
+			todoContainer.appendChild(TodoTaskContainer(task));
 
 			console.log(task);
 		}
 	});
-
-	const containerTask = ({ task }) => {
-		const $div = document.createElement('div');
-		$div.innerHTML = task.getName();
-
-		return $div;
-	};
 });

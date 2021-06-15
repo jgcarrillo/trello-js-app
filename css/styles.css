@@ -5,7 +5,7 @@
 	--cards-color: #a8dadc;
 	--radius: 5px;
 	--padding: 10px;
-	--bg-color-card: #ccc;
+	--bg-color-card: #457b9d;
 	--btn-color: #f1faee;
 }
 
@@ -163,7 +163,7 @@ button:hover {
 	padding: var(--padding);
 	margin: 1.2em;
 	border-radius: var(--radius);
-	color: black;
+	color: white;
 	font-weight: normal;
 	cursor: pointer;
 }

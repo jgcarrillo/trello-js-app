@@ -1,5 +1,5 @@
 class Task {
-	static id = 0;
+	static id = 1;
 
 	constructor(name) {
 		this.id = Task.id++;
@@ -12,5 +12,9 @@ class Task {
 
 	getName() {
 		return this.name;
+	}
+
+	getId() {
+		return Task.id;
 	}
 }
