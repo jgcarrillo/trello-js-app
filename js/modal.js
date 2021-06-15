@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	const containerAlert = document.querySelector('#alert__empty');
 
-	// iterate all the open datasets and set the 'is-visible' class
+	// Iterate all the open datasets and set the 'is-visible' class
 	for (let elem of openModal) {
 		elem.addEventListener('click', function () {
 			const modalId = this.dataset.open;
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
-	// iterate all the close datasets and remove the 'is-visible' class
+	// Iterate all the close datasets and remove the 'is-visible' class
 	for (let elem of closeModal) {
 		elem.addEventListener('click', function () {
 			this.parentElement.parentElement.parentElement.classList.remove(isVisible);
@@ -43,13 +43,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
-	// Retrieving value
+	// Retrieving value and error management
 	btnTask.addEventListener('click', function (e) {
 		e.preventDefault();
 
 		if (getInput.value === '') {
 			containerAlert.classList.add('alert');
-			containerAlert.innerHTML = 'The input value cannot get empty';
+			containerAlert.innerHTML = 'The input value cannot be empty';
 			containerAlert.style.display = 'block';
 
 			setTimeout(() => {
@@ -60,6 +60,5 @@ document.addEventListener('DOMContentLoaded', function () {
 			document.querySelector('.modal.is-visible').classList.remove(isVisible);
 			valueTask = getInput.value;
 		}
-		console.log(valueTask);
 	});
 });

@@ -1,11 +1,12 @@
 :root {
-	--bg-color: #303030;
-	--navbar-color: #375a7f;
-	--footer-color: #5991ce;
-	--cards-color: #888;
+	--bg-color: #1d3557;
+	--navbar-color: #457b9d;
+	--footer-color: #457b9d;
+	--cards-color: #a8dadc;
 	--radius: 5px;
 	--padding: 10px;
 	--bg-color-card: #ccc;
+	--btn-color: #f1faee;
 }
 
 * {
@@ -16,7 +17,7 @@
 body {
 	font-family: 'Inter', sans-serif;
 	background-color: var(--bg-color);
-	color: white;
+	color: black;
 }
 
 /* ***** */
@@ -110,11 +111,18 @@ a {
 }
 
 a:hover {
-	color: #ccc;
+	color: #a8dadc;
 }
 
 .link-web {
-	color: rgb(219, 85, 85);
+	color: #e63946;
+}
+
+/* ******* */
+/* FOOTER */
+/* ******* */
+footer {
+	color: white;
 }
 
 /* ******* */
@@ -124,7 +132,7 @@ button {
 	cursor: pointer;
 	width: 90%;
 	height: 4vh;
-	background-color: #ccc;
+	background-color: var(--btn-color);
 	border: none;
 	box-shadow: 0px 2px 2px gray;
 	margin: 0px auto;
@@ -208,7 +216,8 @@ button:hover {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: rgb(230, 230, 230);
+	background-color: var(--navbar-color);
+	color: white;
 }
 
 .modal__header .modal__close {
@@ -225,10 +234,11 @@ button:hover {
 	width: 10%;
 	padding: 0;
 	margin: 0;
+	color: white;
 }
 
 .modal__close:hover {
-	background-color: rgb(230, 230, 230);
+	background-color: transparent;
 	font-weight: 800;
 }
 
@@ -242,6 +252,7 @@ button:hover {
 
 .modal__content {
 	margin: 0.8em;
+	color: var(--cards-color);
 }
 
 input {
@@ -253,8 +264,12 @@ input {
 
 label {
 	text-align: center;
+	color: black;
 }
 
+/* ************* */
+/* 'ADD' BUTTON */
+/* ************* */
 #add__task {
 	display: block;
 	width: 50%;
