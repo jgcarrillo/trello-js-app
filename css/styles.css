@@ -159,7 +159,6 @@ button:hover {
 /* CARD */
 /* ***** */
 .card {
-	display: none;
 	background-color: var(--bg-color-card);
 	padding: var(--padding);
 	margin: 1.2em;
