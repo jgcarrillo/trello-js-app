@@ -201,7 +201,7 @@ button:hover {
 	max-width: 800px;
 	max-height: 80vh;
 	border-radius: var(--radius);
-	background: white;
+	background: var(--cards-color);
 	overflow: auto;
 	cursor: default;
 	width: 40%;
@@ -252,7 +252,6 @@ button:hover {
 
 .modal__content {
 	margin: 0.8em;
-	color: var(--cards-color);
 }
 
 input {
