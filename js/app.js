@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		$div.classList.add('container__todo');
 		$div.classList.add('card');
+		$div.setAttribute('id', task.getId());
 
 		// Drag an drop events
 		$div.setAttribute('draggable', 'true');
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		// Remove task when press X button
 		$button.addEventListener('click', () => {
-			$div.parentNode.removeChild($div);
+			removeTodo($div.getAttribute('id'));
 		});
 
 		for (let container of containerDrop) {
@@ -86,6 +87,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		$div.appendChild($button);
 
 		return $div;
+	};
+
+	const removeTodo = (id) => {
+		document.getElementById(id).remove();
 	};
 
 	// *************************
