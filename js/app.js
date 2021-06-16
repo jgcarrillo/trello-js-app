@@ -20,20 +20,25 @@ document.addEventListener('DOMContentLoaded', function () {
 	const TodoTaskContainer = (task) => {
 		const $div = document.createElement('div');
 		const $p = document.createElement('p');
+		const $button = document.createElement('button');
 
 		$div.classList.add('container__todo');
 		$div.classList.add('card');
 
 		$p.innerHTML = `${task.getName()}`;
+
+		$button.innerHTML = 'X';
+		$button.classList.add('remove__button');
+
+		// Remove task when press X button
+		$button.addEventListener('click', () => {
+			$div.parentNode.removeChild($div);
+		});
+
 		$div.appendChild($p);
+		$div.appendChild($button);
 
 		return $div;
-	};
-
-	const searchTask = (id) => {
-		for (let task of tasks) {
-			if (task.getId() == id) return task;
-		}
 	};
 
 	// *************************
@@ -94,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			// Create a new instance of Task
 			const task = new Task(taskTitle.value);
 
+			// Adding the task to the array to control the number of tasks
 			tasks.push(task);
 
 			// Show the task into To-Do container
