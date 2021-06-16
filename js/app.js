@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-	// Getting all the data attributes to open and close
+	// ****************
+	// GLOBAL VARIABLES
+	// ****************
 	const openModal = document.querySelectorAll('[data-open]');
 	const closeModal = document.querySelectorAll('[data-close]');
 
@@ -11,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	const containerAlert = document.querySelector('#alert__empty');
 
 	const todoContainer = document.querySelector('.to-do');
+
+	const containerDrop = document.querySelectorAll('.dropzone');
 
 	let tasks = [];
 
@@ -25,6 +29,36 @@ document.addEventListener('DOMContentLoaded', function () {
 		$div.classList.add('container__todo');
 		$div.classList.add('card');
 
+		// Drag an drop events
+		$div.setAttribute('draggable', 'true');
+
+		/*
+		$div.addEventListener('dragstart', (e) => {
+			console.log('start');
+		});
+
+		$div.addEventListener('dragend', (e) => {
+			console.log('end');
+		});
+
+		$div.addEventListener('drag', (e) => {
+			console.log('drag');
+		});
+
+		// DROPZONE CONTAINER
+		for (let container of containerDrop) {
+			container.addEventListener('dragenter', (e) => {
+				console.log('drag enter');
+			});
+		}
+
+		for (let container of containerDrop) {
+			container.addEventListener('dragleave', (e) => {
+				console.log('drag leave');
+			});
+		}
+		*/
+
 		$p.innerHTML = `${task.getName()}`;
 
 		$button.innerHTML = 'X';
@@ -35,6 +69,19 @@ document.addEventListener('DOMContentLoaded', function () {
 			$div.parentNode.removeChild($div);
 		});
 
+		for (let container of containerDrop) {
+			container.addEventListener('dragover', (e) => {
+				// Avoid default behaviour of browser
+				e.preventDefault();
+			});
+		}
+
+		for (let container of containerDrop) {
+			container.addEventListener('drop', (e) => {
+				container.appendChild($div);
+			});
+		}
+
 		$div.appendChild($p);
 		$div.appendChild($button);
 
@@ -44,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	// *************************
 	// MODAL *******************
 	// *************************
-
 	// Iterate all the open datasets and set the 'is-visible' class
 	for (let elem of openModal) {
 		elem.addEventListener('click', function () {
@@ -77,6 +123,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+	// *********************
+	// CREATE TASK AND APPEND
+	// *********************
 	// Retrieving value and error management
 	btnTask.addEventListener('click', function (e) {
 		e.preventDefault();
@@ -91,9 +140,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			}, 2000);
 			return;
 		} else {
-			// *********************
-			// CREATE TASK AND APPEND
-			// *********************
 			document.querySelector('.modal.is-visible').classList.remove(isVisible);
 
 			// Create a new instance of Task
