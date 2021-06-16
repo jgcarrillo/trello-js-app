@@ -104,8 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Show the task into To-Do container
 			todoContainer.appendChild(TodoTaskContainer(task));
-
-			console.log(task);
 		}
 	});
 });
