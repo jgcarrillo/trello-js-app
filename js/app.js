@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	const todoContainer = document.querySelector('.to-do');
 
 	const containerDrop = document.querySelectorAll('.dropzone');
+	const all = document.querySelectorAll('.container__todo, .card');
+	let draggableTodo = null;
 
 	let tasks = [];
 
@@ -33,32 +35,48 @@ document.addEventListener('DOMContentLoaded', function () {
 		// Drag an drop events
 		$div.setAttribute('draggable', 'true');
 
-		/*
-		$div.addEventListener('dragstart', (e) => {
-			console.log('start');
-		});
+		$div.addEventListener('dragstart', dragStart);
+		$div.addEventListener('dragend', dragEnd);
 
-		$div.addEventListener('dragend', (e) => {
-			console.log('end');
-		});
-
-		$div.addEventListener('drag', (e) => {
-			console.log('drag');
-		});
-
-		// DROPZONE CONTAINER
-		for (let container of containerDrop) {
-			container.addEventListener('dragenter', (e) => {
-				console.log('drag enter');
-			});
+		function dragStart() {
+			draggableTodo = this;
 		}
 
-		for (let container of containerDrop) {
-			container.addEventListener('dragleave', (e) => {
-				console.log('drag leave');
-			});
+		function dragEnd() {
+			draggableTodo = null;
 		}
-		*/
+
+		containerDrop.forEach((status) => {
+			status.addEventListener('dragover', dragOver);
+			status.addEventListener('dragenter', dragEnter);
+			status.addEventListener('dragleave', dragLeave);
+			status.addEventListener('drop', dragDrop);
+		});
+
+		function dragOver(e) {
+			e.preventDefault();
+		}
+
+		function dragEnter() {
+			this.style.border = '5px solid yellow';
+		}
+
+		function dragLeave() {
+			this.style.border = 'none';
+		}
+
+		function dragDrop() {
+			if (this.classList.contains('doing')) {
+				draggableTodo.style.background = 'red';
+			} else if (this.classList.contains('done')) {
+				draggableTodo.style.background = 'green';
+			} else {
+				draggableTodo.style.background = '#457b9d';
+			}
+
+			this.style.border = 'none';
+			this.appendChild(draggableTodo);
+		}
 
 		$p.innerHTML = `${task.getName()}`;
 
@@ -70,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			removeTodo($div.getAttribute('id'));
 		});
 
+		/*
 		for (let container of containerDrop) {
 			container.addEventListener('dragover', (e) => {
 				// Avoid default behaviour of browser
@@ -78,10 +97,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		for (let container of containerDrop) {
-			container.addEventListener('drop', (e) => {
-				container.appendChild($div);
+			container.addEventListener('drop', function (e) {
+				this.setAttribute('draggable', 'true');
+				this.appendChild($div);
 			});
 		}
+		*/
 
 		$div.appendChild($p);
 		$div.appendChild($button);
