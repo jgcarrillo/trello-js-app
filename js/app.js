@@ -178,7 +178,10 @@ document.addEventListener('DOMContentLoaded', function () {
 				// Show the task into To-Do container
 				todoContainer.appendChild(TodoTaskContainer(task));
 			} else {
-				alert('You have reached the maximum amount of tasks');
+				containerAlert.classList.add('alert');
+				containerAlert.innerHTML = 'You have reached the maximum amount of tasks, please delete some tasks.';
+				containerAlert.style.display = 'block';
+				return;
 			}
 		}
 	});
