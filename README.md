@@ -17,6 +17,8 @@ The list of the features implemented in this program are:
 - [x] Drag & Drop between task
 - [x] Use of modals
 
+You can see the application ready to work on Codepen: [See the demo](https://codepen.io/jgcarrillo/pen/gOmqVLv)
+
 ## Contact
 
 If you have some doubts or need to ask something about the project, feel free to reach me here:
