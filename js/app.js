@@ -84,9 +84,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		$button.classList.add('remove__button');
 
 		// Remove task when press X button
-		$button.addEventListener('click', () => {
+		$button.addEventListener('click', (e) => {
+			// Remove from the DOM
 			removeTodo($div.getAttribute('id'));
-			// TODO: refactoring array delete
+
+			// Remove from the array
+			removeFromArray(e);
 		});
 
 		$div.appendChild($p);
@@ -97,6 +100,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	const removeTodo = (id) => {
 		document.getElementById(id).remove();
+	};
+
+	const removeFromArray = (e) => {
+		let index;
+		for (let i = 0; i < tasks.length; i++) {
+			if (tasks[i].name === e.target.parentElement.childNodes[0].innerHTML) {
+				index = i;
+			}
+		}
+
+		tasks.splice(index, 1);
 	};
 
 	// *************************
