@@ -1,5 +1,3 @@
-**WIP**
-
 # Trello JS JavaScript clone
 
 Hi everyone! This is a personal project to improve my skills in JS and also in CSS. It is made with Grid Layout and ES6 JavaScript and it is inspired in the famous Trello APP.

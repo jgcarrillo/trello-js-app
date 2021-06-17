@@ -294,7 +294,7 @@ label {
 	.container {
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: 0.3fr 1fr 1fr 0.2fr;
-		height: 70vh;
+		height: 100vh;
 		gap: 0.7rem;
 		font-size: 0.9em;
 		font-weight: 800;
