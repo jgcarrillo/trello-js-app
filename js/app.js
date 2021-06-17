@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	const todoContainer = document.querySelector('.to-do');
 
 	const containerDrop = document.querySelectorAll('.dropzone');
-	const all = document.querySelectorAll('.container__todo, .card');
 	let draggableTodo = null;
 
 	let tasks = [];
@@ -32,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		$div.classList.add('card');
 		$div.setAttribute('id', task.getId());
 
-		// Drag an drop events
+		// ****** Drag and drop events *******
 		$div.setAttribute('draggable', 'true');
 
 		$div.addEventListener('dragstart', dragStart);
@@ -77,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			this.style.border = 'none';
 			this.appendChild(draggableTodo);
 		}
+		// ****** End of drag and drop *******
 
 		$p.innerHTML = `${task.getName()}`;
 
@@ -86,23 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		// Remove task when press X button
 		$button.addEventListener('click', () => {
 			removeTodo($div.getAttribute('id'));
+			// TODO: refactoring array delete
 		});
-
-		/*
-		for (let container of containerDrop) {
-			container.addEventListener('dragover', (e) => {
-				// Avoid default behaviour of browser
-				e.preventDefault();
-			});
-		}
-
-		for (let container of containerDrop) {
-			container.addEventListener('drop', function (e) {
-				this.setAttribute('draggable', 'true');
-				this.appendChild($div);
-			});
-		}
-		*/
 
 		$div.appendChild($p);
 		$div.appendChild($button);
@@ -168,14 +153,19 @@ document.addEventListener('DOMContentLoaded', function () {
 		} else {
 			document.querySelector('.modal.is-visible').classList.remove(isVisible);
 
-			// Create a new instance of Task
-			const task = new Task(taskTitle.value);
+			// Prevent more than 7 tasks
+			if (tasks.length < 7) {
+				// Create a new instance of Task
+				const task = new Task(taskTitle.value);
 
-			// Adding the task to the array to control the number of tasks
-			tasks.push(task);
+				// Adding the task to the array to control the number of tasks
+				tasks.push(task);
 
-			// Show the task into To-Do container
-			todoContainer.appendChild(TodoTaskContainer(task));
+				// Show the task into To-Do container
+				todoContainer.appendChild(TodoTaskContainer(task));
+			} else {
+				alert('You have reached the maximum amount of tasks');
+			}
 		}
 	});
 });
